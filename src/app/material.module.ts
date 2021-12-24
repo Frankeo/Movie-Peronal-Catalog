@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule
   ],
 })
 export class MaterialModule { }
