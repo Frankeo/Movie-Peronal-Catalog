@@ -11,11 +11,11 @@
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened>
     <mat-nav-list>
-    <mat-list-item *ngFor="let link of links">
-      <mat-icon matListIcon>{{link.icon}}</mat-icon>
-      <a [routerLink]="link.path"> {{ link.title }} </a>
-    </mat-list-item>
-   </mat-nav-list>   
+      <mat-list-item *ngFor="let link of links" [routerLink]="link.path">
+        <mat-icon matListIcon>{{link.icon}}</mat-icon>
+        {{ link.title }}
+      </mat-list-item>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
