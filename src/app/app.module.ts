@@ -7,10 +7,11 @@ import { MaterialModule } from './material.module';
 import { MovieLoadComponent } from './movie-load/movie-load.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailComponent } from './movie-list/movie-detail/movie-detail.component';
-import { MovieSummaryComponent } from './movie-list/movie-summary/movie-summary.component';
+import { MovieSummaryComponent } from './movie-summary/movie-summary.component';
 import { MovieSearchBarComponent } from './movie-list/movie-search-bar/movie-search-bar.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from '@angular/forms';
+import { MovieFormComponent } from './movie-load/movie-form/movie-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MovieListComponent,
     MovieDetailComponent,
     MovieSummaryComponent,
-    MovieSearchBarComponent
+    MovieSearchBarComponent,
+    MovieFormComponent
   ],
   imports: [
     BrowserModule,

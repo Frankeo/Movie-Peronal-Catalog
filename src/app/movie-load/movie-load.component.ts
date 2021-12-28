@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MovieSummary } from '../interfaces/types';
 
 @Component({
   selector: 'app-movie-load',
@@ -8,11 +8,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class MovieLoadComponent {
-  form: FormGroup;
-  constructor(private formbuilder: FormBuilder) {
-    this.form = this.formbuilder.group({});
-   }
+  movie: MovieSummary = {
+    gender: '',
+    title: '',
+    id: '',
+    poster: '',
+    ranking: 0,
+    sinopsis: ''
+  };
 
-  saveDetails() {}
-
+  SeePreview() {
+    console.log("See Preview");
+    this.movie.title = "bla";
+  }
 }
