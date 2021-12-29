@@ -10,8 +10,9 @@ import { MovieDetailComponent } from './movie-list/movie-detail/movie-detail.com
 import { MovieSummaryComponent } from './movie-summary/movie-summary.component';
 import { MovieSearchBarComponent } from './movie-list/movie-search-bar/movie-search-bar.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieFormComponent } from './movie-load/movie-form/movie-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { MovieFormComponent } from './movie-load/movie-form/movie-form.component
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [MainComponent]

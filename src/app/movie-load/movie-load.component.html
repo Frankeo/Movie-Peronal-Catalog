@@ -1,9 +1,9 @@
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="33%">
-      <app-movie-form (SeePreview)="SeePreview()"></app-movie-form>
+      <app-movie-form (SeePreview)="SeePreview($event)"></app-movie-form>
     </div>
-    <div fxFlex="50%" *ngIf="movie.title">
+    <div fxFlex="25%" *ngIf="movie.title">
       <app-movie-summary [movie]="movie"></app-movie-summary>
     </div>
   </div>

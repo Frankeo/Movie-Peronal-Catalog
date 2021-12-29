@@ -9,6 +9,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider'; 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   exports: [
@@ -21,7 +22,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    MatAutocompleteModule
   ],
 })
 export class MaterialModule { }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MovieSummary } from 'src/app/interfaces/types';
+import { MovieSummary } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-movie-summary',
@@ -9,7 +9,7 @@ import { MovieSummary } from 'src/app/interfaces/types';
 })
 export class MovieSummaryComponent implements OnInit {
   @Input() movie: MovieSummary = {
-    gender: '',
+    genrer: '',
     title: '',
     id: '',
     poster: '',

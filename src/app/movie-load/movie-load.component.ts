@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MovieSummary } from '../interfaces/types';
+import { Observable } from 'rxjs';
+import { MovieSummary, MovieUploaded, ImDBResult } from '../interfaces/interfaces';
+import { MovieApiService } from '../service/movie-api.service';
 
 @Component({
   selector: 'app-movie-load',
@@ -9,7 +11,7 @@ import { MovieSummary } from '../interfaces/types';
 
 export class MovieLoadComponent {
   movie: MovieSummary = {
-    gender: '',
+    genrer: '',
     title: '',
     id: '',
     poster: '',
@@ -17,8 +19,14 @@ export class MovieLoadComponent {
     sinopsis: ''
   };
 
-  SeePreview() {
-    console.log("See Preview");
-    this.movie.title = "bla";
+  constructor(private movieApiService: MovieApiService) {}
+
+  SeePreview(movieUploaded: MovieUploaded) {
+    this.movieApiService.getMovieOverview(movieUploaded.id)
+      .subscribe(result => 
+        this.movie = {
+          ...result,
+          ranking: movieUploaded.ranking
+        });
   }
 }
