@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "movie-personal-catalog"
+  },
+  "targets": {
+    "movie-personal-catalog": {
+      "hosting": {
+        "movie-catalog": [
+          "movie-personal-catalog"
+        ]
+      }
+    }
   }
 }

@@ -13,6 +13,19 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieFormComponent } from './movie-load/movie-form/movie-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth, getAuth, connectAuthEmulator, Auth  } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+
+const configEmulators = (auth: Auth) : Auth => {
+  if (environment.production) return auth;
+  connectAuthEmulator(auth, environment.emulators.auth);
+  return auth;
+}
 
 @NgModule({
   declarations: [
@@ -32,9 +45,21 @@ import { HttpClientModule } from '@angular/common/http';
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => configEmulators(getAuth())),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()),
+    providePerformance(() => getPerformance())
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,
+    UserTrackingService,
+  ],
   bootstrap: [MainComponent]
 })
+
+
+
 export class AppModule { }

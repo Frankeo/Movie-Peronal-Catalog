@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'detail', component: MovieDetailComponent },
   { path: 'list', component: MovieListComponent },
   { path: 'load', component: MovieLoadComponent },
-  { path: '**', redirectTo: '/list' }
+  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
