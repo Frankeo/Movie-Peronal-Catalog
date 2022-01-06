@@ -17,14 +17,21 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth, getAuth, connectAuthEmulator, Auth  } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideFunctions, getFunctions, connectFunctionsEmulator, Functions } from '@angular/fire/functions';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 
-const configEmulators = (auth: Auth) : Auth => {
+const configEmulatorAuth = (auth: Auth) : Auth => {
   if (environment.production) return auth;
   connectAuthEmulator(auth, environment.emulators.auth);
   return auth;
+}
+
+const configEmulatorFunctions = (func: Functions) : Functions => {
+  if (environment.production) return func;
+  const { host, port } = environment.emulators.functions
+  connectFunctionsEmulator(func, host, port);
+  return func;
 }
 
 @NgModule({
@@ -48,9 +55,9 @@ const configEmulators = (auth: Auth) : Auth => {
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
-    provideAuth(() => configEmulators(getAuth())),
+    provideAuth(() => configEmulatorAuth(getAuth())),
     provideFirestore(() => getFirestore()),
-    provideFunctions(() => getFunctions()),
+    provideFunctions(() => configEmulatorFunctions(getFunctions())),
     providePerformance(() => getPerformance())
   ],
   providers: [

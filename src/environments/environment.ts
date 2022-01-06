@@ -16,7 +16,11 @@ export const environment = {
   },
   production: false,
   emulators: {
-    auth: 'http://127.0.0.1:9099'
+    auth: 'http://127.0.0.1:9099',
+    functions: {
+      host: '127.0.0.1',
+      port: 5001
+    }
   }
 };
 
