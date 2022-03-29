@@ -1,0 +1,13 @@
+<mat-card class="mat-elevation-z4" id="{{movie.id}}">
+    <mat-card-header>
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>{{ movie.genrer }} {{ movie.ranking}}</mat-card-subtitle>
+    </mat-card-header>
+    <img matCardImage src="{{movie.poster}}">
+    <mat-card-content>
+        {{ movie.sinopsis }}
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="viewDetails()">View Details</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>movie</mat-icon>
+  </button>
+  <span>Personal Movie Catalog</span>
+  <span class="example-spacer"></span>
+  <button mat-mini-fab color="warn" 
+    *ngIf="!user; else avatar" 
+    (click)="signIn()">
+    <mat-icon>person</mat-icon>
+  </button>
+  <ng-template #avatar>
+    <button mat-mini-fab 
+      [style.backgroundImage]="'url(' + user?.photoURL + ')'" 
+      [style.backgroundSize]="'cover'" 
+      (click)="signOut()">
+    </button>
+  </ng-template>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened *ngIf="user">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let link of links" [routerLink]="link.path">
+        <mat-icon matListIcon>{{link.icon}}</mat-icon>
+        {{ link.title }}
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

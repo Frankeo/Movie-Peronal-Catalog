@@ -1,0 +1,20 @@
+.mat-github {
+  background-color: black;
+  color: whitesmoke;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  flex: 0.25 0.5 auto;
+}
